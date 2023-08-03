@@ -1,0 +1,71 @@
+.register {
+  width: 396px;
+  margin: 70px auto;
+}
+
+.register__greeting {
+  margin: 40px 0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.register__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  border: none;
+  padding: 0;
+  background-color: #2F2F2F;
+  border-radius: 8px;
+  color: #fff;
+  padding-left: 15px;
+}
+
+.register__label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 10px;
+  color: #8B8B8B;
+}
+
+.register__label:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.register__text {
+  margin: 0;
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #8B8B8B;
+  text-align: center;
+}
+
+.register_btn {
+  padding: 0;
+  margin-top: 49px;
+  border-radius: 3px;
+  width: 100%;
+  height: 45px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  background-color: #4285F4;
+  cursor: pointer;
+}
+
+.register__link {
+  text-decoration: none;
+}
+
+.register__signin {
+  color: #4285F4;
+}
+
+.register__input-error {
+  color: #EE3465;
+  height: 10px;
+}

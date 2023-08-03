@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px #424242;
+  height: 69px;
 }
 
 .portfolio__link {
@@ -38,4 +39,23 @@
   margin: 0;
   text-decoration: none;
   color: #fff;
+}
+
+.portfolio__follow {
+  width: 29px;
+  height: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 0 50px 90px;
+  }
+  
+  .portfolio__link {
+    font-size: 28px;
+  }
+
+  .portfolio__follow {
+    width: 27px;
+  }
 }

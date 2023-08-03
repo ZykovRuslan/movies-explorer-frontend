@@ -68,3 +68,28 @@
   object-fit: cover;
   object-position: center;
 }
+
+@media screen and (max-width: 768px) {
+  .about-me {
+    padding: 90px 50px 90px;
+  }
+
+  .about-me__name {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .about-me__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-me__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-me__align {
+    max-width: 364px;
+  }
+}

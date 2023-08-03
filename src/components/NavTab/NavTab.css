@@ -26,3 +26,9 @@
   min-width: 96px;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .nav-tab {
+    margin-top: 314px;
+  }
+}

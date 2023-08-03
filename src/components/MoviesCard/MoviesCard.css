@@ -85,3 +85,10 @@
   right: 14px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .movie__image {
+    margin-bottom: 25px;
+    height: 190px;
+  }
+}

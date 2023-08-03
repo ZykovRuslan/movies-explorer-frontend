@@ -2,6 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  flex-grow: 1;
 }
 
 .movies__btn-follow {
@@ -18,4 +19,10 @@
   font-size: 12px;
   color: #FFF;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .movies__btn-follow {
+    margin-top: 50px;
+  }
 }

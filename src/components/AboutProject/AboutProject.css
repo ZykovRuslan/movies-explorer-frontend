@@ -85,3 +85,22 @@
   line-height: 17px;
   color: #8B8B8B;
 }
+
+@media screen and (max-width: 768px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__info {
+    margin-bottom: 93px;
+  }
+
+  .about-project__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-project__columns-left {
+    width: calc(100%/3.77);
+  }
+}

@@ -5,7 +5,7 @@ function SearchForm() {
   return (
     <form noValidate className="search-form">
         <div className="search-form__container">
-          <input className="search-form__input" type="text" name="search" placeholder=" Фильм" required/>
+          <input className="search-form__input" type="text" name="search" placeholder="Фильм" required/>
           <button className="search-form__btn" />
         </div>
         <div class="search-form__toggle-container">

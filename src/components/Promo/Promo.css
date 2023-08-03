@@ -18,3 +18,16 @@
   text-align: center;
   margin-top: 160px;
 }
+
+@media screen and (max-width: 768px) {
+  .promo {
+    min-height: 834px;
+    margin: 20px 20px 0 20px;
+  }
+
+  .promo__title {
+    font-size: 40px;
+    line-height: 52px;
+    margin-top: 350px;
+  }
+}

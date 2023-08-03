@@ -8,6 +8,8 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
+import Login from '../Login/Login'
+import PageError404 from '../PageError404/PageError404';
 
 
 function App() {
@@ -21,10 +23,9 @@ function App() {
           <Route exact path='/movies' element={<Movies isLoggedIn={isLoggedIn} />} />
           <Route exact path='/saved-movies' element={<SavedMovies isLoggedIn={isLoggedIn} />} />
           <Route exact path='/profile' element={<Profile isLoggedIn={isLoggedIn} />} />
-          <Route exact path='/signup' element={<Register />}
-          />
-          {/* <Route path='sign-in' element={<Login onAuth={heandleLogin} isLoggedIn={isLoggedIn} />} /> */}
-          <Route path='*' element={isLoggedIn ? <Navigate to='/' /> : <Navigate to='/sign-in' />} />
+          <Route exact path='/signup' element={<Register />} />
+          <Route exact path='/signin' element={<Login />} />
+          <Route exact path='*' element={<PageError404 />} />
         </Routes>
     </div>
     </CurrentUserContext.Provider>

@@ -41,7 +41,7 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  column-gap: 10px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -56,4 +56,28 @@
   height: 60px;
   min-width: 90px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .techs {
+    padding: 90px 50px;
+  }
+
+  .techs__subtitle {
+    margin-top: 80px;
+  }
+
+  .techs__text {
+    margin-top: 22px;
+  }
+
+  .techs__list {
+    margin-top: 83px;
+  }
+
+  .techs__item {
+    font-size: 12px;
+    height: 57px;
+    min-width: 84px;
+  }
 }

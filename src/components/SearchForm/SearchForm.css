@@ -2,7 +2,7 @@
   box-sizing: border-box;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 70px 50px;
+  padding: 80px 70px 80px;
 }
 
 .search-form__container {
@@ -19,6 +19,8 @@
   padding: 0;
   background-color: #2F2F2F;
   border-radius: 8px;
+  color: #fff;
+  padding-left: 10px;
 }
 
 .search-form__btn {
@@ -35,7 +37,7 @@
 .search-form__toggle-container {
   display: flex;
   justify-content: center;
-  padding: 40px;
+  padding-bottom: 40px;
   border-bottom: solid 1px #424242;
 }
 
@@ -93,4 +95,14 @@
 .search-form__checkbox-input:checked+.search-form__checkbox-inner::after {
   background-color: #FFF;
   left: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    padding: 80px 30px 80px;
+  }
+
+  .search-form__container {
+    margin-bottom: 40px;
+  }
 }
