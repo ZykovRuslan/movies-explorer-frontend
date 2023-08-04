@@ -7,10 +7,19 @@
   margin: 0 auto;
 }
 
+.register__logo:hover {
+  opacity: 0.8;
+}
+
+.register__content {
+  width: 100%;
+}
+
 .register__greeting {
   margin: 40px 0;
   font-weight: 500;
   font-size: 24px;
+  text-align: center;
 }
 
 .register__input {
@@ -32,10 +41,6 @@
   font-weight: 400;
   font-size: 10px;
   color: #8B8B8B;
-}
-
-.register__label:not(:last-child) {
-  margin-bottom: 20px;
 }
 
 .register__text {
@@ -95,11 +100,12 @@
   }
 
   .register__greeting {
-    margin: 50px 0 80px;
+    margin: 47px 0 80px;
   }
 
-  .register_btn {
+  .register__btn {
     font-size: 12px;
+    margin-top: 161px;
   }
 
   .register__text {

@@ -34,8 +34,8 @@ function Navigation() {
             Аккаунт
           </Link>
         </div>
-        <button className={`navigation__burger ${isMenuOpen ? 'navigation__burger_open' : ''}`} aria-label='меню' onClick={toggleMenu}>
-          {isMenuOpen ? <img className='movie__btn-burger-close' alt='закрыть меню' src={closeMenu} /> : 
+        <button className={`navigation__burger ${isMenuOpen ? 'navigation__burger_open' : ''}`} aria-label='меню' onClick={toggleMenu} type='button'>
+          {isMenuOpen ? <img className='navigation__btn-burger-close' alt='закрыть меню' src={closeMenu} /> : 
           <img className="navigation__btn-burger" alt='открыть меню' src={openMenu} />}
         </button>
         <div className={`navigation__overlay ${isMenuOpen ? 'navigation__overlay_open' : ''}`} onClick={toggleMenu}></div>

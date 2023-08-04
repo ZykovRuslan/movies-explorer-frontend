@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.navigation__logo:hover {
+  opacity: 0.8;
+}
+
 .navigation__link {
   font-weight: 400;
   font-size: 13px;
@@ -18,6 +22,10 @@
   text-decoration: none;
   color: #fff;
   margin-right: 16px;
+}
+
+.navigation__link:hover {
+  opacity: 0.8;
 }
 
 .navigation__active {
@@ -63,16 +71,10 @@
   z-index: 3;
 }
 
-
-
 .navigation__menu {
   display: flex;
   align-items: center;
   width: calc(50% + 212px/2);
-}
-
-.navigation__align {
-  flex-grow: 1;
 }
 
 .navigation__overlay {
@@ -93,8 +95,8 @@
 
   .navigation__burger_open {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 18px;
+    right: 16px;
   }
 
   .navigation__menu {
@@ -112,6 +114,7 @@
     height: 100vh;
     background-color: #202020;
     z-index: 2;
+    overflow: scroll;
   }
 
   .navigation__align {
@@ -124,7 +127,7 @@
   }
 
   .navigation__btn-accaunt {
-    margin: 0 auto 90px;
+    margin: 190px auto;
   }
 
   .navigation__link {
@@ -155,9 +158,12 @@
 
   .navigation__align {
     gap: 24px;
+    justify-content: flex-start;
+    margin-top: 145px;
+    padding-bottom: 442px;
   }
 
   .navigation__btn-accaunt {
-    margin-bottom: 46px;
+    margin: 0;
   }
 }

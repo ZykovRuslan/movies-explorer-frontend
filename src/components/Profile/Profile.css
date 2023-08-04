@@ -79,6 +79,7 @@
   color: #EE3465;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .profile__btn-exit:hover {
@@ -87,14 +88,29 @@
 
 @media screen and (max-width: 540px) {
   .profile {
+    align-items: flex-start;
+    margin-top: 70px;
     max-width: 260px;
   }
 
   .profile__form {
-    padding-top: 80px;
+    padding-top: 82px;
   }
 
   .profile__align {
     max-width: 260px;
+    padding-top: 378px;
+  }
+
+  .profile__label-name {
+    height: 29px;
+  }
+
+  .profile__btn-edit {
+    font-size: 12px;
+  }
+
+  .profile__btn-exit {
+    font-size: 12px;
   }
 }

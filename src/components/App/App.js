@@ -16,7 +16,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <CurrentUserContext.Provider>
       <div className='app'>
         <Routes>
           <Route exact path='/' element={<Main isLoggedIn={isLoggedIn} />} />
@@ -28,8 +27,6 @@ function App() {
           <Route exact path='*' element={<PageError404 />} />
         </Routes>
     </div>
-    </CurrentUserContext.Provider>
-
   );
 }
 

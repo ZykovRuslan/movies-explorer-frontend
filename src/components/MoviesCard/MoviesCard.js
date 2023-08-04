@@ -18,13 +18,13 @@ function MoviesCard({link, name, timeOfTheFilm, isSave}) {
         <span className='movie__time'>{timeOfTheFilm}</span>
       </div>
       {location.pathname === '/movies' &&
-        <button className={isSave ? 'movie__btn-save' : 'movie__btn-saved'} aria-label='сохранить'>
+        <button className={isSave ? 'movie__btn-save' : 'movie__btn-saved'} aria-label='сохранить' type='button'>
           {isSave ? <img className="movie__btn-save-pic" alt='добавить в сохраненные' src={savePic} /> :
           <img className='movie__btn-saved-pic' alt='добавлено в сохраненные' src={savedPic} />}
         </button>
       }
       {location.pathname === '/saved-movies' &&
-        <button className='movie__btn-delete' aria-label='удалить фильм'>
+        <button className='movie__btn-delete' aria-label='удалить фильм' type='button'>
           <img className='movie__btn-delete-pic' alt='удалить' src={deletePic} />
         </button>
       }

@@ -57,7 +57,6 @@ function MoviesCardList() {
           />
         ) : null
       ))}
-
     </section>
   );
 }

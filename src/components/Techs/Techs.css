@@ -15,8 +15,8 @@
 
 .techs__subtitle {
   font-weight: 400;
-  font-size: 50px;
-  line-height: 58px;
+  font-size: 47px;
+  line-height: 53px;
   margin: 0;
   margin-top: 90px;
   min-height: 58px;
@@ -84,7 +84,7 @@
 
 @media screen and (max-width: 540px) {
   .techs {
-    padding: 70px 14px;
+    padding: 60px 14px;
   }
 
   .techs__title {
@@ -92,12 +92,12 @@
   }
 
   .techs__subtitle {
-    margin-top: 60px;
-    font-size: 30px;
+    margin-top: 50px;
+    font-size: 28px;
   }
 
   .techs__text {
-    margin-top: 24px;
+    margin-top: 11px;
     font-size: 11px;
     line-height: 16px;
   }
@@ -106,7 +106,7 @@
     margin-top: 50px;
     max-width: 178px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 42px;
     justify-content: flex-start;
   }
 }

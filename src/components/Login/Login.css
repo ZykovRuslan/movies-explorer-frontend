@@ -7,6 +7,14 @@
   margin: 0 auto;
 }
 
+.login__logo:hover {
+  opacity: 0.8;
+}
+
+.login__content {
+  width: 100%;
+}
+
 .login__greeting {
   margin: 40px 0;
   font-weight: 500;
@@ -90,20 +98,16 @@
   }
 
   .login__greeting {
-    margin: 50px 0 80px;
+    margin: 47px 0 80px;
+    text-align: center;
   }
 
   .login__btn {
     font-size: 12px;
-    position: relative;
-    top: 157px;
-    margin: 0;
+    margin-top: 248px;
   }
 
   .login__text {
     font-size: 12px;
-    position: relative;
-    top: 171px;
-    margin: 0;
   }
 }

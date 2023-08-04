@@ -12,11 +12,13 @@ function Main({ isLoggedIn }) {
   return (
     <>
       <Header isLoggedIn={isLoggedIn}/>
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
+      <main>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+      </main>
       <Footer />
     </>
   );

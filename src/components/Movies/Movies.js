@@ -12,7 +12,7 @@ function Movies({ isLoggedIn }) {
       <main className='movies'>
 			  <SearchForm />
         <MoviesCardList />
-        <button className="movies__btn-follow">Еще</button>
+        <button className="movies__btn-follow" type='button'>Еще</button>
       </main>
       <Footer />
     </>

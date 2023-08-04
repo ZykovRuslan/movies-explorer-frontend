@@ -16,7 +16,7 @@ function AboutMe() {
           на более высокий уровень.</p>
           <ul className='about-me__contacts'>
             <li className='about-me__contact'>
-              <a className='about-me__link' href='https://github.com/ZykovRuslan'>Github</a>
+              <a className='about-me__link' href='https://github.com/ZykovRuslan' target='_blank' rel='noreferrer'>Github</a>
             </li>
           </ul>
         </div>
