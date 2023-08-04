@@ -1,6 +1,10 @@
 .login {
   width: 396px;
-  margin: 70px auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .login__greeting {
@@ -43,7 +47,7 @@
   text-align: center;
 }
 
-.login_btn {
+.login__btn {
   padding: 0;
   margin-top: 179px;
   border-radius: 3px;
@@ -57,10 +61,49 @@
   cursor: pointer;
 }
 
+.login__btn:hover {
+  opacity: 0.8;
+}
+
 .login__link {
   text-decoration: none;
 }
 
 .login__signin {
   color: #4285F4;
+}
+
+.login__signin:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 540px) {
+  .login {
+    margin-top: 56px;
+    max-width: 260px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .login__form {
+    width: 100%;
+  }
+
+  .login__greeting {
+    margin: 50px 0 80px;
+  }
+
+  .login__btn {
+    font-size: 12px;
+    position: relative;
+    top: 157px;
+    margin: 0;
+  }
+
+  .login__text {
+    font-size: 12px;
+    position: relative;
+    top: 171px;
+    margin: 0;
+  }
 }

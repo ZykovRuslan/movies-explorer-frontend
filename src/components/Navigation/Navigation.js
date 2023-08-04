@@ -18,7 +18,7 @@ function Navigation() {
         <Link to='/'>
           <img src={logo} className='navigation__logo' alt='логотип' />
         </Link>
-        <div className={`navigation__menu ${isMenuOpen ? 'open' : ''}`}>
+        <div className={`navigation__menu ${isMenuOpen ? 'navigation__menu_open' : ''}`}>
           <div className='navigation__align'>
             {isMenuOpen && <NavLink to='/' className={({isActive}) => isActive ? "navigation__active" : "navigation__link" }>
               Главная
@@ -34,11 +34,11 @@ function Navigation() {
             Аккаунт
           </Link>
         </div>
-        <button className={`navigation__burger ${isMenuOpen ? 'open' : ''}`} aria-label='меню' onClick={toggleMenu}>
+        <button className={`navigation__burger ${isMenuOpen ? 'navigation__burger_open' : ''}`} aria-label='меню' onClick={toggleMenu}>
           {isMenuOpen ? <img className='movie__btn-burger-close' alt='закрыть меню' src={closeMenu} /> : 
           <img className="navigation__btn-burger" alt='открыть меню' src={openMenu} />}
         </button>
-        <div className={`navigation__overlay ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}></div>
+        <div className={`navigation__overlay ${isMenuOpen ? 'navigation__overlay_open' : ''}`} onClick={toggleMenu}></div>
       </div>
     </nav>
   );

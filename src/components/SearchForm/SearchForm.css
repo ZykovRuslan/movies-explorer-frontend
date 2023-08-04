@@ -34,6 +34,10 @@
   background-size: contain;
 }
 
+.search-form__btn:hover {
+  opacity: 0.8;
+}
+
 .search-form__toggle-container {
   display: flex;
   justify-content: center;
@@ -104,5 +108,24 @@
 
   .search-form__container {
     margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .search-form {
+    padding: 80px 14px 40px;
+  }
+
+  .search-form__input {
+    height: 44px;
+  }
+
+  .search-form__btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .search-form__container {
+    margin-bottom: 46px;
   }
 }

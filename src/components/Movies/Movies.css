@@ -6,6 +6,7 @@
 }
 
 .movies__btn-follow {
+  padding: 0;
   margin: 76px auto 80px;
   width: 320px;
   height: 36px;
@@ -21,8 +22,18 @@
   cursor: pointer;
 }
 
+.movies__btn-follow:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
   .movies__btn-follow {
     margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .movies__btn-follow {
+    width: 240px;
   }
 }

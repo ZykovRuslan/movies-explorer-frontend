@@ -1,6 +1,10 @@
 .register {
   width: 396px;
-  margin: 70px auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .register__greeting {
@@ -43,7 +47,7 @@
   text-align: center;
 }
 
-.register_btn {
+.register__btn {
   padding: 0;
   margin-top: 49px;
   border-radius: 3px;
@@ -57,8 +61,16 @@
   cursor: pointer;
 }
 
+.register__btn:hover {
+  opacity: 0.8;
+}
+
 .register__link {
   text-decoration: none;
+}
+
+.register__link:hover {
+  opacity: 0.8;
 }
 
 .register__signin {
@@ -68,4 +80,29 @@
 .register__input-error {
   color: #EE3465;
   height: 10px;
+}
+
+@media screen and (max-width: 540px) {
+  .register {
+    max-width: 260px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 56px;
+  }
+
+  .register__form {
+    width: 100%;
+  }
+
+  .register__greeting {
+    margin: 50px 0 80px;
+  }
+
+  .register_btn {
+    font-size: 12px;
+  }
+
+  .register__text {
+    font-size: 12px;
+  }
 }

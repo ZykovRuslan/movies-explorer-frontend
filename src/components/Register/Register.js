@@ -8,7 +8,7 @@ function Register() {
     <>
       <section className='register'>
         <Link to="/">
-          <img src={logo} alt="Логотип" className="header__logo" />
+          <img src={logo} alt="Логотип" className="register__logo" />
         </Link>
         <h2 className='register__greeting'>Добро пожаловать!</h2>
         <form className='register__form'>
@@ -24,7 +24,7 @@ function Register() {
             <input className='register__input' name='password' type='password' placeholder='Пароль' minLength='6' maxLength='40' autoComplete="off" required />
             <span className="register__input-error"></span>
           </label>
-          <button className='register_btn' type='submit'>Зарегистрироваться</button>
+          <button className='register__btn' type='submit'>Зарегистрироваться</button>
         </form>
         <p className='register__text'>Уже зарегистрированы?{' '}
           <Link className='register__link' to='/signin'>

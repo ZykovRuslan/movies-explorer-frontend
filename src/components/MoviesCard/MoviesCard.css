@@ -69,6 +69,7 @@
   right: 14px;
   border: none;
   background-color: initial;
+  cursor: pointer;
 }
 
 .movie__btn-delete {
@@ -86,9 +87,32 @@
   cursor: pointer;
 }
 
+.movie__btn-delete:hover {
+  opacity: 0.8;
+}
+
+.movie__btn-save:hover {
+  opacity: 0.8;
+}
+
+.movie__btn-saved:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
   .movie__image {
     margin-bottom: 25px;
     height: 190px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .movie__image {
+    margin-bottom: 16px;
+    height: 168px;
+  }
+
+  .movie__align {
+    padding: 0;
   }
 }

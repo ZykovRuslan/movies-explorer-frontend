@@ -9,9 +9,7 @@ function Header({ isLoggedIn }) {
 
   return (
     <header className='header'>
-      {isLoggedIn && <Navigation />}
-
-      {!isLoggedIn && location.pathname !== '/signup' && location.pathname !== '/signin' && (
+      {location.pathname === '/' || !isLoggedIn ? (
         <div className="header__container">
           <Link to="/">
             <img src={logo} alt="Логотип" className="header__logo" />
@@ -25,9 +23,11 @@ function Header({ isLoggedIn }) {
             </Link>
           </div>
         </div>
+      ) : (
+        isLoggedIn && <Navigation />
       )}
     </header>
-  );
+  )
 }
 
 export default Header;

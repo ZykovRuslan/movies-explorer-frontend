@@ -31,3 +31,16 @@
     margin-top: 350px;
   }
 }
+
+@media screen and (max-width: 540px) {
+  .promo {
+    min-height: 586px;
+    margin: 14px 14px 0 14px;
+  }
+
+  .promo__title {
+    font-size: 29px;
+    line-height: 37px;
+    margin-top: 220px;
+  }
+}

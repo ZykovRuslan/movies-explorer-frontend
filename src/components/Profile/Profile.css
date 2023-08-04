@@ -1,8 +1,9 @@
 .profile {
-  box-sizing: border-box;
+  display: flex;
+  min-height: 100vh;
   max-width: 410px;
   margin: 0 auto;
-  padding: 74px 0 70px;
+  align-items: center;
 }
 
 .profile__container {
@@ -59,15 +60,41 @@
 }
 
 .profile__btn-edit {
+  font-weight: 400;
+  font-size: 13px;
   background-color: transparent;
   color: #fff;
   border: none;
   cursor: pointer;
 }
 
+.profile__btn-edit:hover {
+  opacity: 0.8;
+}
+
 .profile__btn-exit {
+  font-weight: 400;
+  font-size: 13px;
   background-color: transparent;
   color: #EE3465;
   border: none;
   cursor: pointer;
+}
+
+.profile__btn-exit:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 540px) {
+  .profile {
+    max-width: 260px;
+  }
+
+  .profile__form {
+    padding-top: 80px;
+  }
+
+  .profile__align {
+    max-width: 260px;
+  }
 }

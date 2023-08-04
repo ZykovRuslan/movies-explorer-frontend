@@ -27,8 +27,25 @@
   border-radius: 10px;
 }
 
+.nav-tab__link:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
   .nav-tab {
     margin-top: 314px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .nav-tab {
+    margin-top: 212px;
+    margin-bottom: 17px;
+  }
+
+  .nav-tab__link {
+    height: 26px;
+    min-width: 82px;
+    font-size: 10px;
   }
 }

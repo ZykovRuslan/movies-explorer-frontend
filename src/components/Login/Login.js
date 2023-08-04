@@ -8,7 +8,7 @@ function Login() {
     <>
       <section className='login'>
         <Link to="/">
-          <img src={logo} alt="Логотип" className="header__logo" />
+          <img src={logo} alt="Логотип" className="login__logo" />
         </Link>
         <h2 className='login__greeting'>Рады видеть!</h2>
         <form className='login__form'>
@@ -18,7 +18,7 @@ function Login() {
           <label className='login__label'>Пароль
             <input className='login__input' name='password' type='password' placeholder='Пароль' minLength='6' maxLength='40' autoComplete="off" required />
           </label>
-          <button className='login_btn' type='submit'>Зарегистрироваться</button>
+          <button className='login__btn' type='submit'>Зарегистрироваться</button>
         </form>
         <p className='login__text'>Еще не зарегистрированы?{' '}
           <Link className='login__link' to='/signup'>

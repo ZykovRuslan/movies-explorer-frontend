@@ -45,8 +45,33 @@
   text-decoration: none;
 }
 
+.header__btn-register:hover {
+  opacity: 0.8;
+}
+
+.header__btn-auth:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
   .header {
     padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__btn-register {
+    margin-right: 14px;
+    font-size: 10px;
+  }
+
+  .header__btn-auth {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
   }
 }

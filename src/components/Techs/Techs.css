@@ -81,3 +81,32 @@
     min-width: 84px;
   }
 }
+
+@media screen and (max-width: 540px) {
+  .techs {
+    padding: 70px 14px;
+  }
+
+  .techs__title {
+    font-size: 18px;
+  }
+
+  .techs__subtitle {
+    margin-top: 60px;
+    font-size: 30px;
+  }
+
+  .techs__text {
+    margin-top: 24px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .techs__list {
+    margin-top: 50px;
+    max-width: 178px;
+    margin: 0 auto;
+    margin-top: 50px;
+    justify-content: flex-start;
+  }
+}
