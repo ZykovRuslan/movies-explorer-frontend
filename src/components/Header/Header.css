@@ -1,0 +1,81 @@
+.header {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 1280px;
+  padding: 0 70px;
+  height: 74px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+.header__container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__align {
+  display: flex;
+  align-items: center;
+}
+
+.header__btn-register {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 0;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 30px;
+}
+
+.header__btn-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 32px;
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: #3DDC84;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.header__btn-register:hover {
+  opacity: 0.8;
+}
+
+.header__btn-auth:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__btn-register {
+    margin-right: 14px;
+    font-size: 10px;
+  }
+
+  .header__btn-auth {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+  }
+}

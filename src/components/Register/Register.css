@@ -1,0 +1,123 @@
+.register {
+  width: 396px;
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+  margin: 69px auto;
+}
+
+.register__logo:hover {
+  opacity: 0.8;
+}
+
+.register__content {
+  width: 100%;
+}
+
+.register__greeting {
+  margin: 40px 0;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.register__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  border: none;
+  padding: 0;
+  background-color: #2F2F2F;
+  border-radius: 8px;
+  color: #fff;
+  padding-left: 15px;
+}
+
+.register__input:focus {
+  outline: #4285F4 solid 1px;
+}
+
+.register__label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 10px;
+  color: #8B8B8B;
+}
+
+.register__text {
+  margin: 0;
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #8B8B8B;
+  text-align: center;
+}
+
+.register__btn {
+  padding: 0;
+  margin-top: 70px;
+  border-radius: 3px;
+  width: 100%;
+  height: 45px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  border: none;
+  background-color: #4285F4;
+  cursor: pointer;
+}
+
+.register__btn:hover {
+  opacity: 0.8;
+}
+
+.register__link {
+  text-decoration: none;
+}
+
+.register__link:hover {
+  opacity: 0.8;
+}
+
+.register__signin {
+  color: #4285F4;
+}
+
+.register__input-error {
+  color: #EE3465;
+  height: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .register {
+    margin: 231px auto;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .register {
+    max-width: 260px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 56px;
+  }
+
+  .register__form {
+    width: 100%;
+  }
+
+  .register__greeting {
+    margin: 47px 0 80px;
+    text-align: center;
+  }
+
+  .register__btn {
+    font-size: 12px;
+    margin-top: 161px;
+  }
+
+  .register__text {
+    font-size: 12px;
+  }
+}
