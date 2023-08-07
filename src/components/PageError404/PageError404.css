@@ -1,10 +1,7 @@
 .page-error {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 250px auto;
 }
 
 .page-error__title {
@@ -14,14 +11,15 @@
 }
 
 .page-error__text {
-  margin: 0;
+  margin: 10px auto;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .page-error__btn {
   margin: 0;
-  margin-top: 184px;
+  margin-top: 174px;
+  text-align: center;
   text-decoration: none;
   color: #4285F4;
   font-weight: 400;
@@ -33,18 +31,29 @@
   opacity: 0.8;
 }
 
+@media screen and (max-width: 768px) {
+  .page-error {
+    margin: 412px auto;
+  }
+}
+
 @media screen and (max-width: 540px) {
+  .page-error {
+    margin-top: 332px
+  }
+
   .page-error__title {
     font-size: 80px;
+    text-align: center;
   }
 
   .page-error__text {
-    font-size: 15px;
+    font-size: 12px;
+    margin-top: 13px;
   }
 
   .page-error__btn {
-    position: relative;
-    top: 284px;
-    margin: 0;
+    margin-top: 275px;
+    font-size: 12px;
   }
 }

@@ -1,9 +1,10 @@
 .footer {
   box-sizing: border-box;
   max-width: 1280px;
-  padding: 56px 70px 20px;
-  margin: 0 auto;
+  padding: 0 70px;
+  margin: 57px auto 0;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .footer__text {
@@ -19,7 +20,7 @@
 
 .footer__align {
 	display: flex;
-	margin-top: 20px;
+  margin-top: 17px;
 	justify-content: space-between;
 }
 

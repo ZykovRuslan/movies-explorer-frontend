@@ -7,7 +7,7 @@
 
 .movies__btn-follow {
   padding: 0;
-  margin: 76px auto 80px;
+  margin: 76px auto 102px;
   width: 320px;
   height: 36px;
   display: flex;
@@ -27,13 +27,23 @@
 }
 
 @media screen and (max-width: 768px) {
+  .movies {
+    margin: 0;
+  }
+  
   .movies__btn-follow {
-    margin-top: 50px;
+    margin-top: 60px;
+    margin-bottom: 23px;
   }
 }
 
 @media screen and (max-width: 540px) {
   .movies__btn-follow {
     width: 240px;
+    margin-top: 50px;
+  }
+
+  .movies__btn-follow {
+    margin-bottom: 46px;
   }
 }

@@ -74,6 +74,7 @@
 .navigation__menu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: calc(50% + 212px/2);
 }
 
@@ -114,7 +115,6 @@
     height: 100vh;
     background-color: #202020;
     z-index: 2;
-    overflow: scroll;
   }
 
   .navigation__align {
@@ -160,10 +160,14 @@
     gap: 24px;
     justify-content: flex-start;
     margin-top: 145px;
-    padding-bottom: 442px;
   }
 
   .navigation__btn-accaunt {
-    margin: 0;
+    margin-bottom: 80px;
+  }
+
+  .navigation__burger_open {
+    top: 8px;
+    right: 7px;
   }
 }

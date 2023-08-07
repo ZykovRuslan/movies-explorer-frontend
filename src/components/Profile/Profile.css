@@ -1,9 +1,6 @@
 .profile {
-  display: flex;
-  min-height: 100vh;
   max-width: 410px;
-  margin: 0 auto;
-  align-items: center;
+  margin: 74px auto
 }
 
 .profile__container {
@@ -50,6 +47,11 @@
   background-color: transparent;
 }
 
+.profile__input:focus {
+  outline: #4285F4 solid 1px;
+  border-radius: 2px;
+}
+
 .profile__align {
   padding-top: 220px;
   width: 410px;
@@ -84,6 +86,20 @@
 
 .profile__btn-exit:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    margin: 236px auto;
+  }
+
+  .profile__form {
+    padding-top: 97px;
+  }
+
+  .profile__align {
+    padding-top: 208px;
+  }
 }
 
 @media screen and (max-width: 540px) {

@@ -104,15 +104,15 @@
     margin-bottom: 25px;
     height: 190px;
   }
+
+  .movie__align {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 540px) {
   .movie__image {
     margin-bottom: 16px;
     height: 168px;
-  }
-
-  .movie__align {
-    padding: 0;
   }
 }

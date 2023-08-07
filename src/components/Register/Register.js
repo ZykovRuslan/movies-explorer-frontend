@@ -14,7 +14,7 @@ function Register() {
           <h1 className='register__greeting'>Добро пожаловать!</h1>
           <form className='register__form'>
             <label className='register__label'>Имя
-              <input className='register__input' name='name' type='text' placeholder='Имя' autoComplete="off" required />
+              <input className='register__input' name='name' type='text' placeholder='Имя' minLength='6' maxLength='40' autoComplete="off" required />
               <span className="register__input-error"></span>
             </label>
             <label className='register__label'>E-mail

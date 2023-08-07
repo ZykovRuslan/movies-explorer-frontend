@@ -9,22 +9,22 @@ function Header({ isLoggedIn }) {
 
   return (
     <header className='header'>
-      {location.pathname === '/' || !isLoggedIn ? (
+      {isLoggedIn && <Navigation />}
+
+      {!isLoggedIn && location.pathname !== '/signup' && location.pathname !== '/signin' && (
         <div className="header__container">
           <Link to="/">
             <img src={logo} alt="Логотип" className="header__logo" />
           </Link>
-          <div className="header__align">
+          <nav className="header__align">
             <Link to="/signup" className="header__btn-register">
               Регистрация
             </Link>
             <Link to="/signin" className="header__btn-auth">
               Войти
             </Link>
-          </div>
+          </nav>
         </div>
-      ) : (
-        isLoggedIn && <Navigation />
       )}
     </header>
   )

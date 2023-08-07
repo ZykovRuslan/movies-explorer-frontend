@@ -8,7 +8,7 @@ function Profile(isLoggedIn) {
     <>
       <Header isLoggedIn={isLoggedIn}/>
       <main className='profile'>
-        <div className='profile__container'>
+        <section className='profile__container'>
           <h1 className='profile__name'>Привет, Руслан!</h1>
           <form className='profile__form'>
             <label className='profile__label-name'>Имя
@@ -22,7 +22,7 @@ function Profile(isLoggedIn) {
               <Link to="/" className='profile__btn-exit' >Выйти из аккаунта</Link>
             </div>
           </form>
-        </div>
+        </section>
       </main>
     </>
   );

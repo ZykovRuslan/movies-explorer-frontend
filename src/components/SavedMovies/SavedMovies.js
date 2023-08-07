@@ -9,7 +9,7 @@ function SavedMovies({ isLoggedIn }) {
   return (
     <>
     	<Header isLoggedIn={isLoggedIn}/>
-      <main className='movies'>
+      <main className='saved-movies'>
 			  <SearchForm />
         <MoviesCardList />
       </main>

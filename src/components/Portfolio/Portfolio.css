@@ -53,7 +53,7 @@
 
 @media screen and (max-width: 768px) {
   .portfolio {
-    padding: 0 50px 90px;
+    padding: 0 50px 10px;
   }
   
   .portfolio__link {
@@ -61,13 +61,13 @@
   }
 
   .portfolio__follow {
-    width: 27px;
+    width: 16px;
   }
 }
 
 @media screen and (max-width: 540px) {
   .portfolio {
-    padding: 0 14px 70px;
+    padding: 0 14px 12px;
   }
 
   .portfolio__title {
