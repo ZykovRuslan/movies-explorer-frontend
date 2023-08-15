@@ -44,23 +44,21 @@ function App() {
     }
   }
 
-  function handleRegister(name, email, password) {
-    mainApiAuth
-      .signup({ name, email, password })
-      .then((res) => {
-        if (res.status === 'error') {
-          throw new Error(res.message);
-        } else {
-          setCurrentUser({ name }); 
-          handleLogin(email, password);
-        }
-      })
-      .catch(() => {
-        setServerError('Произошла ошибка при регистрации.');
-        setTimeout(() => {
-          setServerError('');
-        }, 3000);
-      });
+  async function handleRegister(name, email, password) {
+    try {
+      const res = await mainApiAuth.signup({ name, email, password });
+      if (res.status === 'error') {
+        throw new Error(res.message);
+      } else {
+        setCurrentUser({ name });
+        handleLogin(email, password);
+      }
+    } catch (error) {
+      setServerError('Произошла ошибка при регистрации.');
+      setTimeout(() => {
+        setServerError('');
+      }, 3000);
+    }
   }
   
   function handleLogin(email, password) {

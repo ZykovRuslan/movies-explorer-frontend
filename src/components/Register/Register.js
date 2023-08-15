@@ -7,13 +7,15 @@ import validator from 'validator';
 function Register({ onRegister, serverError, isLoggedIn }) {
   const [formData, setFormData] = useState({name: '', email: '', password: ''});
   const [formErrors, setFormErrors] = useState({name: '', email: '', password: ''});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
   const isFormValid = () => {
     return (
       Object.values(formData).every(value => value !== '') && 
-      Object.values(formErrors).every(error => error === '')
+      Object.values(formErrors).every(error => error === '') &&
+      !isSubmitting
     );
   };
 
@@ -66,10 +68,19 @@ function Register({ onRegister, serverError, isLoggedIn }) {
     }
   }, [isLoggedIn, navigate]);
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
 
-    onRegister(formData.name, formData.email, formData.password);
+    if (isFormValid() && !isSubmitting) {
+      setIsSubmitting(true);
+      try {
+        await onRegister(formData.name, formData.email, formData.password);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
   }
 
   return (
