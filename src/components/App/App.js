@@ -60,20 +60,19 @@ function App() {
       }, 3000);
     }
   }
-  
-  function handleLogin(email, password) {
-    mainApiAuth.signin({ email, password })
-      .then((res) => {
-        localStorage.setItem('JWT', res.jwt);
-        setIsLoggedIn(true);
-        navigate('/movies');
-      })
-      .catch(() => {
-        setServerError('Произошла ошибка при авторизации.');
-        setTimeout(() => {
-          setServerError('');
-        }, 3000);
-      });
+
+  async function handleLogin(email, password) {
+    try {
+      const res = await mainApiAuth.signin({ email, password });
+      localStorage.setItem('JWT', res.jwt);
+      setIsLoggedIn(true);
+      navigate('/movies');
+    } catch (error) {
+      setServerError('Произошла ошибка при авторизации.');
+      setTimeout(() => {
+        setServerError('');
+      }, 3000);
+    }
   }
   
   useEffect(() => {

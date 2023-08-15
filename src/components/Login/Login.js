@@ -7,6 +7,7 @@ import validator from 'validator';
 function Login({ onLogin, serverError, isLoggedIn }) {
   const [formData, setFormData] = useState({email: '', password: ''});
   const [formErrors, setFormErrors] = useState({email: '', password: ''});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
@@ -53,11 +54,20 @@ function Login({ onLogin, serverError, isLoggedIn }) {
     });
   };
 
-  const handleSubmit = (evt) => {
+  async function handleSubmit(evt) {
     evt.preventDefault();
 
-    onLogin(formData.email, formData.password);
-  };
+    if (isFormValid() && !isSubmitting) {
+      setIsSubmitting(true);
+      try {
+        await onLogin(formData.email, formData.password);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
