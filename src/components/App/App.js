@@ -96,12 +96,6 @@ function App() {
     checkAuth();
   }, [isLoggedIn]);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/movies');
-    }
-  }, [isLoggedIn, navigate]);
-
   function onSignOut() {
     localStorage.removeItem('JWT');
     localStorage.removeItem('searchText');
@@ -145,8 +139,8 @@ function App() {
             }
           />
           <Route exact path='/' element={<Main isLoggedIn={isLoggedIn} />} />
-          <Route exact path='/signup' element={<Register onRegister={handleRegister} serverError={serverError} />} />
-          <Route exact path='/signin' element={<Login onLogin={handleLogin} serverError={serverError} />} />
+          <Route exact path='/signup' element={<Register onRegister={handleRegister} serverError={serverError} isLoggedIn={isLoggedIn} />} />
+          <Route exact path='/signin' element={<Login onLogin={handleLogin} serverError={serverError} isLoggedIn={isLoggedIn} />} />
           <Route exact path='*' element={<PageError404 />} />
         </Routes>
       </div>

@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Register.css';
 import logo from '../../images/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
 
-function Register({ onRegister, serverError }) {
+function Register({ onRegister, serverError, isLoggedIn }) {
   const [formData, setFormData] = useState({name: '', email: '', password: ''});
   const [formErrors, setFormErrors] = useState({name: '', email: '', password: ''});
+
+  const navigate = useNavigate();
 
   const isFormValid = () => {
     return (
@@ -57,6 +59,12 @@ function Register({ onRegister, serverError }) {
       [fieldName]: errorMessage,
     });
   };
+
+    useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/movies');
+    }
+  }, [isLoggedIn, navigate]);
 
   function handleSubmit(evt) {
     evt.preventDefault();

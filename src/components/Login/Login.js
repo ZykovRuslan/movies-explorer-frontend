@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Login.css';
 import logo from '../../images/logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
 
-function Login({ onLogin, serverError }) {
+function Login({ onLogin, serverError, isLoggedIn }) {
   const [formData, setFormData] = useState({email: '', password: ''});
   const [formErrors, setFormErrors] = useState({email: '', password: ''});
+
+  const navigate = useNavigate();
 
   const isFormValid = () => {
     return (
@@ -56,6 +58,12 @@ function Login({ onLogin, serverError }) {
 
     onLogin(formData.email, formData.password);
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/movies');
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <>
