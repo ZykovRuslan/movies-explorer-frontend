@@ -4,6 +4,7 @@ import './SearchForm.css';
 function SearchForm({ onSearchSubmit, shortFilmChecked, setShortFilmChecked, onCheckboxChange, initialSearchText }) {
   const [searchText, setSearchText] = useState(initialSearchText || '');
   const [isErrorVisible, setIsErrorVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (evt) => {
     setSearchText(evt.target.value);
@@ -18,13 +19,24 @@ function SearchForm({ onSearchSubmit, shortFilmChecked, setShortFilmChecked, onC
     localStorage.setItem('shortFilmChecked', evt.target.checked);
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
-
-    if (!searchText.trim()) {
-      setIsErrorVisible(true);
-    } else {
-      onSearchSubmit(searchText);
+    if (isSubmitting) {
+      return;
+    }
+  
+    setIsSubmitting(true);
+  
+    try {
+      if (!searchText.trim()) {
+        setIsErrorVisible(true);
+      } else {
+        await onSearchSubmit(searchText);
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
