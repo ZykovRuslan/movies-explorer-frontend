@@ -32,18 +32,16 @@ function App() {
       .catch((err) => console.log(err));
   }, [isLoggedIn]);
 
-  function handleUpdateUser(data) {
-    mainApi
-      .setUserInfo(data)
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch(() => {
-        setError('Ошибка при обновлении данных пользователя');
-        setTimeout(() => {
-          setError('');
-        }, 3000);
-      });
+  async function handleUpdateUser(data) {
+    try {
+      const res = await mainApi.setUserInfo(data);
+      setCurrentUser(res);
+    } catch (err) {
+      setError('Ошибка при обновлении данных пользователя');
+      setTimeout(() => {
+        setError('');
+      }, 3000);
+    }
   }
 
   function handleRegister(name, email, password) {

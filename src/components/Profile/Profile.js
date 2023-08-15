@@ -13,6 +13,7 @@ function Profile(props) {
   const [originalEmail, setOriginalEmail] = useState(currentUser.email || '');
   const [hasChanges, setHasChanges] = useState(false);
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formErrors, setFormErrors] = useState({name: '', email: ''});
 
@@ -35,18 +36,25 @@ function Profile(props) {
     setHasChanges((name === 'name' && value !== originalName) || (name === 'email' && value !== originalEmail));
   };
 
-  const handleUpdateClick = (evt) => {
+  const handleUpdateClick = async (evt) => {
     evt.preventDefault();
-    if (hasChanges && isFormValid()) {
-      props.onUpdateUser({ name, email });
-      setOriginalName(name);
-      setOriginalEmail(email);
-      setHasChanges(false);
-      setUpdateSuccess(true);
-      
-      setTimeout(() => {
-        setUpdateSuccess(false);
-      }, 3000); 
+    if (hasChanges && isFormValid() && !isSubmitting) {
+      setIsSubmitting(true); 
+      try {
+        await props.onUpdateUser({ name, email });
+        setOriginalName(name);
+        setOriginalEmail(email);
+        setHasChanges(false);
+        setUpdateSuccess(true);
+        
+        setTimeout(() => {
+          setUpdateSuccess(false);
+        }, 3000); 
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
