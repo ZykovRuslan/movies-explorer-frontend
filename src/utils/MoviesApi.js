@@ -19,7 +19,6 @@ class MoviesApi {
     return fetch(this._url + path, {
       method,
       headers: {
-        authorization: `Bearer ${localStorage.getItem('JWT')}`,
         'Content-Type': 'application/json',
       },
       body,
