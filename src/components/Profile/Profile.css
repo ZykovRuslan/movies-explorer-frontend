@@ -27,6 +27,7 @@
   height: 32px;
   align-items: flex-start;
   border-bottom: solid 1px #424242;
+  flex-wrap: wrap;
 }
 
 .profile__label-email {
@@ -36,6 +37,7 @@
   justify-content: space-between;
   height: 32px;
   align-items: flex-end;
+  flex-wrap: wrap;
 }
 
 .profile__input {
@@ -45,6 +47,7 @@
   padding: 0;
   color: #fff;
   background-color: transparent;
+  flex-grow: 1;
 }
 
 .profile__input:focus {
@@ -74,6 +77,11 @@
   opacity: 0.8;
 }
 
+.profile__btn-edit_disabled {
+  cursor: default;
+  color: #C2C2C2;
+}
+
 .profile__btn-exit {
   font-weight: 400;
   font-size: 13px;
@@ -86,6 +94,23 @@
 
 .profile__btn-exit:hover {
   opacity: 0.8;
+}
+
+.profile__input-error {
+  color: #EE3465;
+  height: 5px;
+  margin: 0;
+}
+
+.profile__update-success {
+  margin: 0;
+  font-size: 10px;
+}
+
+.profile__error-message {
+  margin: 0;
+  color: #EE3465;
+  font-size: 10px;
 }
 
 @media screen and (max-width: 768px) {

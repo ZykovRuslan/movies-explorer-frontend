@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
-// import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { CurrentUserContext } from '../../CurrentUserContext/CurrentUserContext';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -10,23 +10,147 @@ import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
 import Login from '../Login/Login'
 import PageError404 from '../PageError404/PageError404';
+import { mainApi, mainApiAuth } from '../../utils';
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [serverError, setServerError] = useState('');
+  const [error, setError] = useState(null);
+
+  const [currentUser, setCurrentUser] = useState({});
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    mainApi
+      .getUserInfo()
+      .then((data) => {
+        setCurrentUser(data);
+      })
+      .catch((err) => console.log(err));
+  }, [isLoggedIn]);
+
+  function handleUpdateUser(data) {
+    mainApi
+      .setUserInfo(data)
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch(() => {
+        setError('Ошибка при обновлении данных пользователя');
+        setTimeout(() => {
+          setError('');
+        }, 3000);
+      });
+  }
+
+  function handleRegister(name, email, password) {
+    mainApiAuth
+      .signup({ name, email, password })
+      .then((res) => {
+        if (res.status === 'error') {
+          throw new Error(res.message);
+        } else {
+          setCurrentUser({ name }); 
+          handleLogin(email, password);
+        }
+      })
+      .catch(() => {
+        setServerError('Произошла ошибка при регистрации.');
+        setTimeout(() => {
+          setServerError('');
+        }, 3000);
+      });
+  }
+  
+  function handleLogin(email, password) {
+    mainApiAuth.signin({ email, password })
+      .then((res) => {
+        localStorage.setItem('JWT', res.jwt);
+        setIsLoggedIn(true);
+        navigate('/movies');
+      })
+      .catch(() => {
+        setServerError('Произошла ошибка при авторизации.');
+        setTimeout(() => {
+          setServerError('');
+        }, 3000);
+      });
+  }
+  
+  useEffect(() => {
+    async function checkAuth() {
+      if (!localStorage.getItem('JWT')) return;
+      try {
+        const res = await mainApiAuth.checkToken(localStorage.getItem('JWT'));
+        if (res) {
+          setIsLoggedIn(true);
+        }
+      } catch (err) {
+        setIsLoggedIn(false);
+        console.log(err);
+      }
+    }
+    checkAuth();
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/movies');
+    }
+  }, [isLoggedIn, navigate]);
+
+  function onSignOut() {
+    localStorage.removeItem('JWT');
+    localStorage.removeItem('searchText');
+    localStorage.removeItem('shortFilmChecked');
+    localStorage.removeItem('filteredMoviesData'); 
+    setIsLoggedIn(false);
+  }
 
   return (
+    <CurrentUserContext.Provider value={currentUser}>
       <div className='app'>
         <Routes>
+          <Route
+            path='/movies'
+            element={
+              <ProtectedRoute
+                element={Movies}
+                isLoggedIn={isLoggedIn}
+              />
+            }
+          />
+          <Route
+            path='/saved-movies'
+            element={
+              <ProtectedRoute
+                element={SavedMovies}
+                isLoggedIn={isLoggedIn}
+              />
+            }
+          />
+          <Route
+            path='/profile'
+            element={
+              <ProtectedRoute
+                element={Profile}
+                onSignOut={onSignOut} 
+                isLoggedIn={isLoggedIn} 
+                onUpdateUser={handleUpdateUser}
+                error={error}
+              />
+            }
+          />
           <Route exact path='/' element={<Main isLoggedIn={isLoggedIn} />} />
-          <Route exact path='/movies' element={<Movies isLoggedIn={isLoggedIn} />} />
-          <Route exact path='/saved-movies' element={<SavedMovies isLoggedIn={isLoggedIn} />} />
-          <Route exact path='/profile' element={<Profile isLoggedIn={isLoggedIn} />} />
-          <Route exact path='/signup' element={<Register />} />
-          <Route exact path='/signin' element={<Login />} />
+          <Route exact path='/signup' element={<Register onRegister={handleRegister} serverError={serverError} />} />
+          <Route exact path='/signin' element={<Login onLogin={handleLogin} serverError={serverError} />} />
           <Route exact path='*' element={<PageError404 />} />
         </Routes>
-    </div>
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

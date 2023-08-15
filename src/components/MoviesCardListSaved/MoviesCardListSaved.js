@@ -1,14 +1,13 @@
 import React from 'react';
-import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ moviesData, savedMovies, addToSavedMovies, removeFromSavedMovies }) {
+function MoviesCardListSaved({ savedMovies, onDeleteMovie }) {
 
   return (
     <section className='galery' aria-label='секция с фильмами'>
-      {moviesData.map(movie => (
+      {savedMovies.map(movie => (
           <MoviesCard
-            key={movie.id}
+            key={movie._id}
             nameRU={movie.nameRU}
             duration={movie.duration}
             trailerLink={movie.trailerLink}
@@ -16,18 +15,17 @@ function MoviesCardList({ moviesData, savedMovies, addToSavedMovies, removeFromS
             director={movie.director}
             year={movie.year}
             description={movie.description}
-            image={`https://api.nomoreparties.co/${movie.image.url}`}
-            thumbnail={`https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`}
+            image={movie.image}
+            thumbnail={movie.thumbnail}
             owner={movie.owner}
             movieId={movie.id}
             nameEN={movie.nameEN}
-            savedMovies={savedMovies}
-            onAddToSavedMovies={addToSavedMovies}
-            removeFromSavedMovies={removeFromSavedMovies}
+            onDeleteMovie={onDeleteMovie}
+            id={movie._id}
         />
       ))}
     </section>
   );
 }
 
-export default MoviesCardList;
+export default MoviesCardListSaved;

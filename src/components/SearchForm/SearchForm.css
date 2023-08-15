@@ -70,6 +70,12 @@
   padding-left: 47px;
 }
 
+.search-form__error-text {
+  margin: 0 0 10px;
+  color: #EE3465;
+  font-size: 10px;
+}
+
 .search-form__checkbox-inner:hover {
   opacity: 0.8;
 }
