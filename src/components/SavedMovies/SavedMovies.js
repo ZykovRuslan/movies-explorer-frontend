@@ -26,7 +26,7 @@ function SavedMovies({ isLoggedIn }) {
         setFilteredMovies(savedMoviesData); 
         setIsLoading(false);
       })
-      .catch(error => {
+      .catch(() => {
         setError('Ошибка при получении сохраненных фильмов');
         setIsLoading(false);
       });
@@ -60,13 +60,18 @@ function SavedMovies({ isLoggedIn }) {
     if (searchText.trim() !== '') {
       const searchTerm = searchText.toLowerCase();
       const filteredByText = filteredData.filter(movie =>
-        movie.nameRU.toLowerCase().includes(searchTerm) ||
-        movie.nameEN.toLowerCase().includes(searchTerm)
+        movie.nameRU.toLowerCase().includes(searchTerm) || movie.nameEN.toLowerCase().includes(searchTerm)
       );
       setFilteredMovies(filteredByText);
     } else {
       setFilteredMovies(filteredData);
     }
+
+    if (filteredData.length === 0) {
+        setError('Ничего не найдено');
+      } else {
+        setError(null);
+      }
   
     setIsLoading(false);
   };
@@ -85,6 +90,12 @@ function SavedMovies({ isLoggedIn }) {
     const filteredData = filterMovies(savedMovies, isChecked);
     setShortFilmChecked(isChecked);
     setFilteredMovies(filteredData);
+    
+    if (filteredData.length === 0) {
+      setError('Ничего не найдено');
+    } else {
+      setError(null);
+    }
   };
 
   return (
@@ -100,7 +111,7 @@ function SavedMovies({ isLoggedIn }) {
         {isLoading ? (
           <Preloader />
         ) : error ? (
-          <p className='movies__error-text'>{error}</p>
+          <p className='saved-movies__error-text'>{error}</p>
         ) : (
           <MoviesCardListSaved 
             savedMovies={filteredMovies} 

@@ -6,6 +6,13 @@
   margin-bottom: 263px;
 }
 
+.saved-movies__error-text {
+  color: #EE3465;
+  font-size: 10px;
+  text-align: center;
+  margin: 0;
+}
+
 @media screen and (max-width: 768px) {
   .saved-movies {
     margin-bottom: 119px;
