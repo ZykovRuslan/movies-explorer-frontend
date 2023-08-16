@@ -146,9 +146,9 @@ function Movies({ isLoggedIn }) {
       const searchTerm = localStorage.getItem('searchText').toLowerCase();
       const filteredBySearch = filteredData.filter(movie =>
       movie.nameRU.toLowerCase().includes(searchTerm) || movie.nameEN.toLowerCase().includes(searchTerm)
-    );
+      );
 
-    setFilteredMoviesData(filteredBySearch);
+      setFilteredMoviesData(filteredBySearch);
 
       if (filteredBySearch.length === 0) {
         setError('Ничего не найдено');
