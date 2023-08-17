@@ -2,7 +2,7 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ moviesData, savedMovies, addToSavedMovies, removeFromSavedMovies }) {
+function MoviesCardList({ moviesData, savedMovies, onSaveMovie, onDeleteSavedMovie, savedMovieId, selectedMovieId }) {
 
   return (
     <section className='galery' aria-label='секция с фильмами'>
@@ -22,8 +22,10 @@ function MoviesCardList({ moviesData, savedMovies, addToSavedMovies, removeFromS
             movieId={movie.id}
             nameEN={movie.nameEN}
             savedMovies={savedMovies}
-            onAddToSavedMovies={addToSavedMovies}
-            removeFromSavedMovies={removeFromSavedMovies}
+            onSaveMovie={onSaveMovie}
+            onDeleteSavedMovie={onDeleteSavedMovie}
+            id={movie._id}
+            selectedMovieId={selectedMovieId}
         />
       ))}
     </section>

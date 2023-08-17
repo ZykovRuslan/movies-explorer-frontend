@@ -77,13 +77,20 @@ function SavedMovies({ isLoggedIn }) {
   };
   
 
-  const handleDeleteMovie = (deletedMovieId) => {
-    setSavedMovies(prevSavedMovies =>
-      prevSavedMovies.filter(movie => movie._id !== deletedMovieId)
-    );
-    setFilteredMovies(prevFilteredMovies =>
-      prevFilteredMovies.filter(movie => movie._id !== deletedMovieId)
-    );
+  const handleDeleteMovie = (movieId) => {
+    mainApi
+      .deleteCard(movieId)
+      .then(() => {
+        setSavedMovies(prevSavedMovies =>
+          prevSavedMovies.filter(movie => movie._id !== movieId)
+        );
+        setFilteredMovies(prevFilteredMovies =>
+          prevFilteredMovies.filter(movie => movie._id !== movieId)
+        );
+      })
+      .catch(() => {
+        setError('Ошибка при удалении сохраненного фильма');
+      });
   };
 
   const handleCheckboxChange = (isChecked) => {
