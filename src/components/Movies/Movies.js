@@ -16,6 +16,7 @@ function Movies({ isLoggedIn }) {
   const [filteredMoviesData, setFilteredMoviesData] = useState([]);
   const [displayedCards, setDisplayedCards] = useState(maxAllowedCardsDisplay());
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
 
   const searchTextRef = useRef('');
 
@@ -130,12 +131,47 @@ function Movies({ isLoggedIn }) {
   };
 
   const handleAddToSavedMovies = (movie) => {
-    setSavedMovies([...savedMovies, movie]);
-  }
+    mainApi
+      .addNewCard({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: movie.image,
+        trailerLink: movie.trailerLink,
+        thumbnail: movie.thumbnail,
+        owner: movie.owner,
+        movieId: movie.movieId,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN
+      })
+      .then(savedMovie => {
+        setSavedMovies([...savedMovies, savedMovie]);
+        setFilteredMoviesData(prevData => [...prevData, savedMovie]);
+        setSelectedMovieId(savedMovie.movieId);
+      })
+      .catch(() => {
+        setError('Ошибка при сохранении фильма');
+      });
+  };
 
   const handleRemoveFromSavedMovies = (movieId) => {
-    setSavedMovies(savedMovies.filter(savedMovie => savedMovie.movieId !== movieId));
-  }
+    mainApi
+      .deleteCard(movieId)
+      .then(() => {
+        setSavedMovies(prevSavedMovies =>
+          prevSavedMovies.filter(movie => movie._id !== movieId)
+        );
+        setFilteredMoviesData(prevFilteredMovies =>
+          prevFilteredMovies.filter(movie => movie._id !== movieId)
+        );
+        setSelectedMovieId(movieId);
+      })
+      .catch(() => {
+        setError('Ошибка при удалении сохраненного фильма');
+      });
+  };
 
   const handleCheckboxChange = (isChecked) => {
     setShortFilmChecked(isChecked);
@@ -222,8 +258,9 @@ function Movies({ isLoggedIn }) {
           <MoviesCardList 
             moviesData={filteredMoviesData.slice(0, displayedCards)} 
             savedMovies={savedMovies} 
-            addToSavedMovies={handleAddToSavedMovies}
-            removeFromSavedMovies={handleRemoveFromSavedMovies}
+            onSaveMovie={handleAddToSavedMovies}
+            onDeleteSavedMovie={handleRemoveFromSavedMovies}
+            selectedMovieId={selectedMovieId}
             currentRoute='/movies'
           />
         )}

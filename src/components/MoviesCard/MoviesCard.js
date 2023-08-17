@@ -4,20 +4,18 @@ import './MoviesCard.css';
 import savePic from '../../images/movie__btn-save-pic.svg';
 import savedPic from '../../images/mavie__btn-saved-pic.svg';
 import deletePic from '../../images/movie__btn-delete-pic.svg';
-import { mainApi } from '../../utils';
 
 function MoviesCard(props) {
   const location = useLocation();
 
-  const [isSaved, setIsSaved] = useState(props.saved);
+  const [isSaved, setIsSaved] = useState(false);
   const [savedMovieId, setSavedMovieId] = useState(null);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (location.pathname === '/movies') {
       const isMovieSaved = props.savedMovies.some(savedMovie => savedMovie.movieId === props.movieId);
       setIsSaved(isMovieSaved);
-  
+
       if (isMovieSaved) {
         const savedMovie = props.savedMovies.find(savedMovie => savedMovie.movieId === props.movieId);
         setSavedMovieId(savedMovie._id);
@@ -27,52 +25,14 @@ function MoviesCard(props) {
 
   const handleSaveClick = () => {
     if (!isSaved) {
-      mainApi
-        .addNewCard({
-          country: props.country,
-          director: props.director,
-          duration: props.duration,
-          year: props.year,
-          description: props.description,
-          image: props.image,
-          trailerLink: props.trailerLink,
-          thumbnail: props.thumbnail,
-          owner: props.owner,
-          movieId: props.movieId,
-          nameRU: props.nameRU,
-          nameEN: props.nameEN
-        })
-        .then( savedMovie => {
-          props.onAddToSavedMovies(savedMovie);
-          setIsSaved(true);
-          setSavedMovieId(savedMovie._id);
-        })
-        .catch(() => {
-          setError('Ошибка при сохранении фильма');
-        });
+      props.onSaveMovie(props);
     } else {
-        mainApi
-          .deleteCard(savedMovieId)
-          .then(() => {
-            setIsSaved(false);
-            props.removeFromSavedMovies(props.movieId);
-          })
-          .catch(() => {
-            setError('Ошибка при удалении сохраненного фильма');
-          });
-      }
+      props.onDeleteSavedMovie(savedMovieId);
+    }
   };
 
   const handleDeleteClick = () => {
-    mainApi
-      .deleteCard(props.id)
-      .then(() => {
-        setIsSaved(false);
-        props.onDeleteMovie(props.id);
-      })
-      .catch(() => {
-        setError('Ошибка при удалении сохраненного фильма');
-      });
+    props.onDeleteMovie(props.id);
   }
 
   function durationFilm (duration) {
@@ -111,7 +71,7 @@ function MoviesCard(props) {
           <img className='movie__btn-delete-pic' alt='удалить' src={deletePic} />
         </button>
       }
-      {error && <p className='movie__error-message'>{error}</p>}
+      {props.error && <p className='movie__error-message'>{props.error}</p>}
     </article>
   );
 }
