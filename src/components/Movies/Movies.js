@@ -28,7 +28,7 @@ function Movies({ isLoggedIn }) {
         .then((data) => {
           setSavedMovies(data);
         })
-        .catch((error) => {
+        .catch(() => {
           setError('Ошибка при получении сохраненных фильмов');
         });
 
@@ -148,7 +148,6 @@ function Movies({ isLoggedIn }) {
       })
       .then(savedMovie => {
         setSavedMovies([...savedMovies, savedMovie]);
-        setFilteredMoviesData(prevData => [...prevData, savedMovie]);
         setSelectedMovieId(savedMovie.movieId);
       })
       .catch(() => {

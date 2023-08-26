@@ -2,8 +2,7 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ moviesData, savedMovies, onSaveMovie, onDeleteSavedMovie, savedMovieId, selectedMovieId }) {
-
+function MoviesCardList({ moviesData, savedMovies, onSaveMovie, onDeleteSavedMovie, selectedMovieId }) {
   return (
     <section className='galery' aria-label='секция с фильмами'>
       {moviesData.map(movie => (
